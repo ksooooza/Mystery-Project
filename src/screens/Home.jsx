@@ -3,7 +3,7 @@ import Modal from '../components/Modal.js'
 import Art from '../screens/Art.jsx'
 
 
-export default function Home() {
+function Home() {
     const [ openModal, setOpenModal ] = useState(false);
     const [ art, setArt ] = useState("");
 
@@ -15,3 +15,5 @@ export default function Home() {
   </div>
   )
 }
+
+export default Home;

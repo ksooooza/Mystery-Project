@@ -1,9 +1,11 @@
 import React from 'react'
 
-export default function EditEntry() {
+function EditEntry() {
   return (
     <div>
       <h1>Edit Entry</h1>
     </div>
   )
 }
+
+export default EditEntry;
