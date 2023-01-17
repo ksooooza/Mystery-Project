@@ -2,6 +2,7 @@ body {
   background-color: #bd93bd;
   font-family: 'arial';
   color: #183642;
+  display: grid;
 }
 .modalBackground {
   width: 100vw;

@@ -11,19 +11,19 @@ function Modal({ closeModal, artworks }) {
 
     async function fetchArt(){
         const artResponse = await axios(`https://metmuseumapi-production.up.railway.app/museum`)
-        console.log(artResponse)
+        //console.log(artResponse)
         
         let filteredStats = {
             Title: artResponse.data[9].title,
+            Date: artResponse.data[9].objectDate,
+            Medium: artResponse.data[9].medium,
             Culture: artResponse.data[9].culture,
-            Department: artResponse.data[9].department
+            Department: artResponse[9].department
+
         }
 
         setImage(artResponse.data[9].primaryImage)
         setArtStats(filteredStats)
-
-        // console.log(artResponse.primaryImage)
-        // console.log(filteredStats)
     }
 
             return (
@@ -34,6 +34,10 @@ function Modal({ closeModal, artworks }) {
                 <div className="body">
                     <img src={image}></img>
                     <p>Title: {artStats.Title}
+                    <br />
+                    Date: {artStats.Date}
+                    <br />
+                    Medium: {artStats.Medium}
                     <br />
                     Culture: {artStats.Culture}
                     <br />
