@@ -6,7 +6,7 @@ function Modal({ closeModal, art }) {
         <button onClick={() => closeModal(false)}>X</button>
         <div className="title"><h2>{art.title}</h2></div>
         <div className="body">
-            <img src={art.primaryImage} style={{maxHeight: 200}}></img>
+            <img src={art.primaryImage} alt="Artwork" style={{maxHeight: 200}}></img>
             <p>Title: {art.title}
             <br />
             Date: {art.objectDate}

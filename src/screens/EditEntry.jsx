@@ -52,7 +52,7 @@ function EditEntry() {
       return (
         <div>
           <h1>Edit Entry</h1>
-          <form className="create-form" onSubmit={handleSubmit}>
+          <form className="create-form" onSubmit={handleSubmit} style={{display: 'flex', flexDirection: 'column', maxWidth: 400}}>
             <input 
                 type="text" 
                 placeholder="Enter your ID" 
