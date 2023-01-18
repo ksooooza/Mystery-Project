@@ -4,5 +4,7 @@
 
 I would have liked to have had more time to make it look better, but such is.
 
+Deployed Link: https://comforting-gelato-a69f9f.netlify.app
+
 Languages/Skills Used:
 MongoDB, Express, React.js, Node, Javascript, axios, fetch, css, RESTful APIs.
