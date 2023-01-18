@@ -1,52 +1,26 @@
-import {useState, useEffect} from 'react';
-import axios from 'axios';
 
-function Modal({ closeModal, artworks }) {
-    const [image, setImage] = useState("")
-    const [artStats, setArtStats] = useState([])
-
-    useEffect(()=>{
-        fetchArt()
-    }, [])
-
-    async function fetchArt(){
-        const artResponse = await axios(`https://metmuseumapi-production.up.railway.app/museum`)
-        //console.log(artResponse)
-        
-        let filteredStats = {
-            Title: artResponse.data[9].title,
-            Date: artResponse.data[9].objectDate,
-            Medium: artResponse.data[9].medium,
-            Culture: artResponse.data[9].culture,
-            Department: artResponse[9].department
-
-        }
-
-        setImage(artResponse.data[9].primaryImage)
-        setArtStats(filteredStats)
-    }
-
-            return (
-                <div className="modalBackground">
-                <div className="modalContainer">
-                <button onClick={() => closeModal(false)}>X</button>
-                <div className="title"><h2>{artworks}</h2></div>
-                <div className="body">
-                    <img src={image}></img>
-                    <p>Title: {artStats.Title}
-                    <br />
-                    Date: {artStats.Date}
-                    <br />
-                    Medium: {artStats.Medium}
-                    <br />
-                    Culture: {artStats.Culture}
-                    <br />
-                    Department: {artStats.Department}
-                    </p>
-                </div>
-                </div>
-                </div>
-            )
+function Modal({ closeModal, art }) {
+    return (
+        <div className="modalBackground">
+        <div className="modalContainer">
+        <button onClick={() => closeModal(false)}>X</button>
+        <div className="title"><h2>{art.title}</h2></div>
+        <div className="body">
+            <img src={art.primaryImage}></img>
+            <p>Title: {art.title}
+            <br />
+            Date: {art.objectDate}
+            <br />
+            Medium: {art.medium}
+            <br />
+            Culture: {art.culture}
+            <br />
+            Department: {art.department}
+            </p>
+        </div>
+        </div>
+        </div>
+    )
 }
 
 export default Modal;

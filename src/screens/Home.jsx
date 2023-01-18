@@ -5,7 +5,7 @@ import Art from '../components/Art.jsx'
 
 function Home() {
     const [ openModal, setOpenModal ] = useState(false);
-    const [ art, setArt ] = useState("");
+    const [ art, setArt ] = useState({});
 
   return (
     <div>

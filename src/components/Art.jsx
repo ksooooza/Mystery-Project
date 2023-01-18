@@ -22,7 +22,7 @@ function Art({setArt, setOpenModal}) {
     return(
         <div>
         {artworks.map((art) => (
-            <button className="buttons" key={art.title} onClick={() => handleClick(art.title)} style={{ backgroundImage: {art}}}>{art.title}</button>
+            <button className="buttons" key={art.title} onClick={() => handleClick(art)}>{art.title}</button>
             ))}
         </div>
     )
