@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Modal from '../components/Modal.js'
-import Art from '../screens/Art.jsx'
+import Art from '../components/Art.jsx'
 
 
 function Home() {
