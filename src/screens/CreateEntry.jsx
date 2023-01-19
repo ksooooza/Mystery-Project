@@ -4,11 +4,10 @@ import { createArt } from '../services/art.js'
 
 function CreateEntry() {
     const [ art, setArt ] = useState({
-        _id: "",
-        objectID: Number,
-        isHighlight: Boolean,
+        objectID: "",
+        isHighlight: false,
         accessionNumber: "",
-        isPublicDomain: Boolean,
+        isPublicDomain: true,
         primaryImage: "",
         department: "",
         objectName: "",
@@ -16,18 +15,19 @@ function CreateEntry() {
         culture: "",
         period: "",
         objectDate: "",
-        objectBeginDate: Date,
-        objectEndDate: Date,
+        objectBeginDate: "",
+        objectEndDate: "",
         medium: "",
-        __v: Number
+        __v: ""
     })
 
     let navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        await createArt(art);
-        navigate(`/${art._id}`, { replace: true})
+        const response = await createArt(art);
+        // navigate(`/${art._id}`, { replace: true})
+        console.log(response)
     };
 
     const handleChange = (e) => {

@@ -3,8 +3,8 @@ import axios from 'axios';
 let apiUrl;
 
 const apiUrls = {
-    production: "https://metmuseumapi-production.up.railway.app/museum",
-    development: "http://localhost:3000"
+    production: "https://metmuseumapi-production.up.railway.app/museum/",
+    development: "https://metmuseumapi-production.up.railway.app/museum/"
 }
 
 if (window.location.hostname === "localhost") {

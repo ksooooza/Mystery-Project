@@ -1,8 +1,8 @@
-import axios from 'axios'
+import apiUrl from "./apiConfig.js";
 
 export const getArt = async () => {
     try {
-        const response = await axios ("https://metmuseumapi-production.up.railway.app/museum");
+        const response = await apiUrl.get('/')
         return response.data;
     } catch (error) {
         throw error;
@@ -11,7 +11,7 @@ export const getArt = async () => {
 
 export const getArtwork = async (id) => {
     try {
-        const response = await axios (`https://metmuseumapi-production.up.railway.app/museum/${id}`);
+        const response = await apiUrl.get(`/${id}`);
         return response.data;
     } catch (error) {
         throw error;
@@ -20,7 +20,7 @@ export const getArtwork = async (id) => {
 
 export const createArt = async (artData) => {
     try {
-        const response = await axios ("https://metmuseumapi-production.up.railway.app/museum", artData);
+        const response = await apiUrl.post(`/`, artData)
         return response.data;
     } catch (error) {
         throw error;
@@ -29,7 +29,7 @@ export const createArt = async (artData) => {
 
 export const updateArt = async (id, artData) => {
     try {
-        const response = await axios (`https://metmuseumapi-production.up.railway.app/museum/${id}`, artData);
+        const response = await apiUrl.put(`/${id}`, artData);
         return response.data;
     } catch (error) {
         throw error;
@@ -38,7 +38,7 @@ export const updateArt = async (id, artData) => {
 
 export const deleteArt = async (id) => {
     try {
-        const response = await axios (`https://metmuseumapi-production.up.railway.app/museum/${id}`);
+        const response = await apiUrl.delete(`/${id}`);
         return response.data;
     } catch (error) {
         throw error;
