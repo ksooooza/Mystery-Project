@@ -1,5 +1,15 @@
+//import { deleteArt } from "../services/art.js";
+import { useNavigate, useParams } from 'react-router-dom';
 
 function Modal({ closeModal, art }) {
+
+    let navigate = useNavigate()
+    
+
+    function handleNav() {
+        navigate(`/art/${art._id}`, { replace: true})
+    }
+
     return (
         <div className="modalBackground">
         <div className="modalContainer">
@@ -18,6 +28,7 @@ function Modal({ closeModal, art }) {
             Department: {art.department}
             </p>
         </div>
+        <button onClick={handleNav}>More details</button>
         </div>
         </div>
     )

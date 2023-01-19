@@ -26,7 +26,7 @@ function CreateEntry() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         const response = await createArt(art);
-        // navigate(`/${art._id}`, { replace: true})
+        navigate(`/`, { replace: true})
         console.log(response)
     };
 
@@ -43,13 +43,6 @@ function CreateEntry() {
     <div>
       <h1>Create Entry</h1>
       <form className="create-form" onSubmit={handleSubmit} style={{display: 'flex', flexDirection: 'column', maxWidth: 400}}>
-        <input 
-            type="text" 
-            placeholder="Enter your ID" 
-            name="_id" 
-            value={art._id} 
-            onChange={handleChange}
-            />
             <input 
             type="text" 
             placeholder="Enter your Object ID" 

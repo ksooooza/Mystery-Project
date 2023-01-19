@@ -1,26 +1,18 @@
-import { useState, useEffect } from 'react';
-import { deleteArt, getArt } from '../services/art.js';
+import { useState } from 'react';
+import { deleteArt } from '../services/art.js';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 
 
-export default function ArtDetail() {
-    const [ art, setArt] = useState({});
+function ArtDetail(art) {
+    //const [ art, setArt] = useState({});
 
     let { id } = useParams();
     let navigate = useNavigate();
-
-    useEffect(() => {
-        fetchArt();
-    }, []);
-
-    async function fetchArt() {
-        let artwork = await getArt(id);
-        setArt(artwork);
-    }
+    //console.log(art)
 
     async function handleDelete() {
         await deleteArt(id);
-        navigate("/museum", { replace: true })
+        navigate("/", { replace: true })
     }
   return (
     <div>
@@ -40,7 +32,7 @@ export default function ArtDetail() {
       <p>{art.medium}</p>
       <p>{art.__v}</p>
     <div>
-    <Link to={`art/${art._id}/edit-entry`}>
+    <Link to={`/edit-entry`}>
         <button>Edit Art</button>
     </Link>
     <button onClick={handleDelete}>Delete Art</button>
@@ -48,3 +40,5 @@ export default function ArtDetail() {
     </div>
   );
 }
+
+export default ArtDetail;

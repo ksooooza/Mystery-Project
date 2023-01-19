@@ -37,7 +37,7 @@ function EditEntry() {
         const handleSubmit = async (e) => {
             e.preventDefault();
             await updateArt(art);
-            navigate(`/${art._id}`, { replace: true})
+            navigate(`/`, { replace: true})
         };
     
         const handleChange = (e) => {
