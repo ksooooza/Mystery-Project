@@ -3,8 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { updateArt, getArt } from '../services/art.js'
 
 function EditEntry() {
-        const [ art, setArt ] = useState({
-            _id: "",
+        const [ artwork, setArtwork ] = useState({
             objectID: Number,
             isHighlight: Boolean,
             accessionNumber: "",
@@ -31,19 +30,19 @@ function EditEntry() {
 
         async function fetchArt() {
             let artwork = await getArt(id);
-            setArt(artwork)
+            setArtwork(artwork)
         }
     
         const handleSubmit = async (e) => {
             e.preventDefault();
-            await updateArt(art);
+            await updateArt(id, artwork);
             navigate(`/`, { replace: true})
         };
     
         const handleChange = (e) => {
             const { value, name } = e.target;
     
-            setArt((prev) => ({
+            setArtwork((prev) => ({
                 ...prev,
                 [name]: value
             }))
@@ -53,109 +52,102 @@ function EditEntry() {
         <div>
           <h1>Edit Entry</h1>
           <form className="create-form" onSubmit={handleSubmit} style={{display: 'flex', flexDirection: 'column', maxWidth: 400}}>
-            <input 
-                type="text" 
-                placeholder="Enter your ID" 
-                name="_id" 
-                value={art._id} 
-                onChange={handleChange}
-                />
                 <input 
                 type="text" 
                 placeholder="Enter your Object ID" 
                 name="objectID" 
-                value={art.objectID} 
+                value={artwork.objectID} 
                 onChange={handleChange}
                 />
                 <input 
                 type="text" 
                 placeholder="Enter your Highlight" 
                 name="isHighlight" 
-                value={art.isHighlight} 
+                value={artwork.isHighlight} 
                 onChange={handleChange}
                 />
                 <input 
                 type="text" 
                 placeholder="Enter your Accession Number" 
                 name="accessionNumber" 
-                value={art.accessionNumber} 
+                value={artwork.accessionNumber} 
                 onChange={handleChange}
                 />
                 <input 
                 type="text" 
                 placeholder="Enter your Public Domain Value" 
                 name="isPublicDomain" 
-                value={art.isPublicDomain} 
+                value={artwork.isPublicDomain} 
                 onChange={handleChange}
                 />
                 <input 
                 type="text" 
                 placeholder="Enter your Department" 
                 name="department" 
-                value={art.department} 
+                value={artwork.department} 
                 onChange={handleChange}
                 />
                 <input 
                 type="text" 
                 placeholder="Enter your Object Name" 
                 name="objectName" 
-                value={art.objectName} 
+                value={artwork.objectName} 
                 onChange={handleChange}
                 />
                 <input 
                 type="text" 
                 placeholder="Enter your Title" 
                 name="title" 
-                value={art.title} 
+                value={artwork.title} 
                 onChange={handleChange}
                 />
                 <input 
                 type="text" 
                 placeholder="Enter your Culture" 
                 name="culture" 
-                value={art.culture} 
+                value={artwork.culture} 
                 onChange={handleChange}
                 />
                 <input 
                 type="text" 
                 placeholder="Enter your Period" 
                 name="period" 
-                value={art.period} 
+                value={artwork.period} 
                 onChange={handleChange}
                 />
                 <input 
                 type="text" 
                 placeholder="Enter your Object Date" 
                 name="objectDate" 
-                value={art.objectDate} 
+                value={artwork.objectDate} 
                 onChange={handleChange}
                 />
                 <input 
                 type="text" 
                 placeholder="Enter your Object Begin Date" 
                 name="objectBeginDate" 
-                value={art.objectBeginDate} 
+                value={artwork.objectBeginDate} 
                 onChange={handleChange}
                 />
                 <input 
                 type="text" 
                 placeholder="Enter your Object End Date" 
                 name="objectEndDate" 
-                value={art.objectEndDate} 
+                value={artwork.objectEndDate} 
                 onChange={handleChange}
                 />
                 <input 
                 type="text" 
                 placeholder="Enter your Medium" 
                 name="medium" 
-                value={art.medium} 
+                value={artwork.medium} 
                 onChange={handleChange}
                 />
                 <input 
                 type="text" 
                 placeholder="Enter your Version" 
                 name="__v" 
-                value={art.__v} 
+                value={artwork.__v} 
                 onChange={handleChange}
                 />
                 <button type="submit">Edit your art</button>

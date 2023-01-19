@@ -7,7 +7,6 @@ function Navbar() {
         <nav>
             <Link to="/">Home</Link>
             <Link to="/create-entry">Create Entry</Link>
-            <Link to="/edit-entry">Edit Entry</Link>
       </nav>
     </div>
   )

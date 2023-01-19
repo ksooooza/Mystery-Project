@@ -3,12 +3,11 @@ import { deleteArt } from '../services/art.js';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 
 
-function ArtDetail(art) {
-    //const [ art, setArt] = useState({});
+function ArtDetail() {
+    const [ art, setArt] = useState({});
 
     let { id } = useParams();
     let navigate = useNavigate();
-    //console.log(art)
 
     async function handleDelete() {
         await deleteArt(id);
@@ -32,7 +31,7 @@ function ArtDetail(art) {
       <p>{art.medium}</p>
       <p>{art.__v}</p>
     <div>
-    <Link to={`/edit-entry`}>
+    <Link to={`/${id}`}>
         <button>Edit Art</button>
     </Link>
     <button onClick={handleDelete}>Delete Art</button>
